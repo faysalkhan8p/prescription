@@ -12,7 +12,7 @@ class Prescription(models.Model):
     prescription_issue_date = models.DateField()
     times_per_day = models.IntegerField()
     medicine = models.CharField(max_length=100)
-    test = models.CharField(max_length=100)
+    condition = models.CharField(max_length=100)
     revisit = models.IntegerField()
     tests = models.CharField(max_length=100)
 
