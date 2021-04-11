@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  {% if object %}
+    <h1>Edit <span class="teal-text"> Prescription {{object.rx_number}}</span></h1>
+  {% else %}
+    <h1>Add Prescription</h1>
+  {% endif %}
+
+  <div class="card">
+    <div class="card-content center-align">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+          <!-- {{ form.as_table }} -->
+          <tbody>
+            <tr>
+              <th><label for="id_rx_number">Rx number:</label></th>
+              <td>
+                <input type="number" name="rx_number" required="" id="id_rx_number" value={{object.rx_number}}>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="id_prescription_issue_date">Rx Issue Date:</label></th>
+              <td>
+                <input type="text" name="prescription_issue_date" required="" id="id_prescription_issue_date" value={{object.prescription_filled_date}}>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="id_prescription_filled_date">Rx Filled On Date:</label></th>
+              <td>
+                <input type="text" name="prescription_filled_date" required="" id="id_prescription_filled_date" value={{object.prescription_filled_date}}>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="id_times_per_day">Pills per day:</label></th>
+              <td>
+                <input type="number" name="times_per_day" required="" id="id_times_per_day" value={{object.times_per_day}}>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="id_delivery">Delivery:</label></th>
+              <td>
+                <input type="text" name="delivery" required="" id="id_delivery" value={{object.delivery}}>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="id_dosage">Dosage:</label></th>
+              <td>
+                <input type="text" name="dosage" required="" id="id_dosage" value={{object.dosage}}>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="id_refills">Refills:</label></th>
+              <td>
+                <input type="number" name="refills" required="" id="id_refills" value={{object.refills}}>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="card-action">
+          <input type="submit" value="Submit" class="btn">
+        </div>
+      </form>
+    </div>
+  </div>
+
+<script>
+  const prescriptionDateEl = document.getElementById("id_prescription_issue_date");
+  M.Datepicker.init(prescriptionDateEl, {
+    format: "yyyy-mm-dd",
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true,
+  });
+
+  const prescriptionFilledDateEl = document.getElementById("id_prescription_filled_date");
+  M.Datepicker.init(prescriptionFilledDateEl, {
+    format: "yyyy-mm-dd",
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true,
+  });
+
+  console.log(this.object)
+</script>
+
+{% endblock %}

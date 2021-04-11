@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prescription</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <header class="navbar-fixed">
+      <ul id="dropdown" class="dropdown-content">
+        {% if user.is_authenticated %}
+          <li><a href="/">Main Page</a></li>
+          <li class="divider"></li>
+          <li><a href="{% url 'index' %}">View All Prescriptions</a></li>
+          <li class="divider"></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+          <li><a href="{% url 'signup' %}">Sign up</a></li>
+          <li class="divider"></li>
+          <li><a href="{% url 'login' %}">Log in</a></li>
+        {% endif %}
+      </ul>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">
+            <img src="{% static "imgs/pillpal2-sm2.png" %}" id="sm-logo">
+          </a>
+            <ul class="right">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown"><i class="material-icons right">menu</i></a></li>
+            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-ctr">
+      <div class="main-icons">
+        <div class="col">
+          <a href="{% url 'index' %}">
+            <img src="{% static "imgs/pill-bottle.png" %}" id='pill-bottle'>
+          </a>
+        </div>
+        </div>
+      </main>
+      
+      <footer class="page-footer">
+
+      </footer>
+  </body>
+</html>
+
+<script> $(".dropdown-trigger").dropdown(); </script>

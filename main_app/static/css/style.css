@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Ubuntu', sans-serif;
+    background-image: url("../imgs/simple-dots.jpg");
+}
+
+#landing-page-bg, #base-ctr, #main-ctr {
+    background-color: lightgray;
+    background-image: url("../imgs/pillpal.png"), url("../imgs/simple-dots.jpg");
+    background-position: right top;
+    background-repeat: no-repeat, repeat;
+}
+
+#main-ctr {
+    background-image: url("../imgs/shelf.png"), url("../imgs/simple-dots.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 488px;
+    position: relative;
+}
+
+.nav-wrapper, .page-footer {
+  background-color: #52bbef;
+}
+
+.main-icons {
+    position: absolute;
+    top: 49%;
+    left: 48%;
+    transform: translate(-39%, -52%);
+    margin-top: 19px;
+}
+
+.dropdown-content {
+    top: 100% !important;
+    overflow: visible !important;
+    overflow-y: visible;
+    width: auto !important;
+}
+
+.card, .card-panel {
+  opacity: .9;
+}
+#sm-logo {
+    height: 65px;
+    width: 150px;
+    margin-left: 15px;
+}
+
+#landing-btn {
+    margin: 10px;
+}
+
+main {
+    flex: 1 0 auto;
+}
+  
+footer.page-footer {
+    padding-top: 0;
+    text-align: right;
+}
+
+#prescription-icons, #ec-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+#pill-bottle, #search-icon, #ec-icon {
+    width: 100px;
+    height: 94px;
+    margin-top: 40px;
+}
+
+.btn {
+  background-color: rgb(218, 5, 22)
+}
+
+strong {
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 768px) {
+    #landing-page-bg {
+      background-position: 10% -90%;
+    }
+  }
+
+@media only screen and (min-width: 868px) {
+    #landing-page-bg {
+      background-position: right top;
+    }
+  }
+
+@media only screen and (min-width: 1200px) {
+    #landing-page-bg {
+      background-position: center top;
+    }
+  }

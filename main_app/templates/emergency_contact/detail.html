@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Emergency Contact</h2>
+<div class="card">
+    {% if emergency_contact %}
+    {% for prop in emergency_contact %}
+    <div class="card-content">
+    <span class="card-title">
+        {{ prop.name }}
+    </span>
+    <span>
+
+    </span>
+        <p><strong>Phone Number</strong>: {{ prop.phone_number }}</p>
+        <p><strong>Relationship</strong>: {{ prop.relationship }}</p>
+    </div>
+    <div class="card-action" id="ec-buttons">
+        <form action="{% url 'ec_update' prop.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Edit" class="btn">  
+        </form>
+        <form action="{% url 'ec_delete' prop.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete" class="btn">  
+        </form>
+    {% endfor %}
+    {% else %}
+    </div>
+        <form action="{% url 'ec_create' %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Add" class="btn">  
+        </form>
+    {% endif %}
+    
+</div>
+
+
+{% endblock %}

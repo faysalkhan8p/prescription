@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Delete Prescription</h1>
+
+  <h4>Are you sure you want to delete <span class="red-text"> Prescription {{object.rx_number}}
+  </span>?</h4>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="btn">
+    <a href="{% url 'detail' prescription.id %}" class="btn">Cancel</a>
+  </form>
+
+{% endblock %}

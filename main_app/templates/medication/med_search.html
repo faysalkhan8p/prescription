@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Search by generic name</h3>
+
+<nav>
+    <div class="nav-wrapper">
+      <form action"" method="POST">
+          {% csrf_token %}
+        <div class="input-field">
+          <input name="search" type="search" placeholder="Search" required>
+          <label class="label-icon" for="search"></label>
+        </div>
+      </form>
+    </div>
+</nav>
+<hr />
+
+<div class="row">
+    {% for med in medication_form %}
+    <div class="card">
+        <div class="card-content">
+            <form action="{% url 'add_medication' prescription_id %}" method="POST">
+              {% csrf_token %}
+              {{ med }}
+              <input type="submit" class="btn" value="Add to prescription">
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
