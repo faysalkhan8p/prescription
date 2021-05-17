@@ -1,2 +1,2 @@
-# prescription
+# Prescription
 CSE470
