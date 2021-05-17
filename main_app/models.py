@@ -15,7 +15,6 @@ class Prescription(models.Model):
     condition = models.CharField(max_length=100)
     revisit = models.IntegerField()
     tests = models.CharField(max_length=100)
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

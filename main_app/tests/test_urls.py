@@ -26,7 +26,6 @@ class TestUrls(SimpleTestCase):
 
     def test_add_dosing_url_is_resolved(self):
         url = resolve('/prescriptions/1/add_dosing/')
-        print(url)
         self.assertEqual(url.func, main_app.views.add_dosing)
 
     def test_remove_dosing_url_is_resolved(self):
